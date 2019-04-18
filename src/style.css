@@ -1,3 +1,8 @@
+
+img {
+    height: 50px;
+    width: 60px;
+}
 *{
 box-sizing: border-box;
 padding: 0;
