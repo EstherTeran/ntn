@@ -1,5 +1,50 @@
 /* Manejo del DOM */
 const root = document.getElementById("root");
+const above = document.getElementById("above"); //arriba ascendente
+const down = document.getElementById("down"); //descendente
+const gender= document.getElementById("genero");
+const role = document.getElementById("Rol");
+const house = document.getElementById("house");
+
+above.addEventListener("click", () =>{
+getCharacters().then(myjson =>{
+  const dataProcessed = converData(myjson);
+  const dataOrdenada = organized(dataProcessed, "Ascendente");
+  root.innerHTML = painted(dataOrdenada);
+})
+});
+
+down.addEventListener("click", () =>{
+  getCharacters().then(myjson =>{
+    const dataProcessed = converData(myjson);
+    const dataOrdenada = organized(dataProcessed, "Descendente");
+    root.innerHTML = painted(dataOrdenada);
+  })
+  })
+
+  gender.addEventListener("change", () =>{
+    getCharacters().then(myjson => {
+      const dataProcessed = converData(myjson);
+      const dataFiltrada= filtrado(dataProcessed, "gender", gender.value);
+      root.innerHTML = painted(dataFiltrada);
+    });
+  });
+
+  role.addEventListener("change", () =>{
+    getCharacters().then(myjson => {
+      const dataProcessed = converData(myjson);
+      const dataFiltrada= filtrado(dataProcessed, "role", role.value);
+      root.innerHTML = painted(dataFiltrada);
+    });
+  });
+
+  house.addEventListener("change", () =>{
+    getCharacters().then(myjson => {
+      const dataProcessed = converData(myjson);
+      const dataFiltrada= filtrado(dataProcessed, "house", house.value);
+      root.innerHTML = painted(dataFiltrada);
+    });
+  });
 
 const getCharacters = () => {
   return fetch(
@@ -12,17 +57,16 @@ const getCharacters = () => {
 const painted = pintado => {
   let paintedCharacters = "";
   pintado.forEach(myjson => {
-    paintedCharacters += `<div> 
-<div><img src="${myjson.image}" alt=""></div><br>
-<p><strong>Nombre Del Actor:</strong> ${myjson.actor}<br></p>
-<p><strong>Personaje:</strong> <span style="color: grey">${
-      myjson.name
-    }</span><br></p>
-<p><strong>Especie:</strong> ${myjson.species}<br></p>
-<p><strong>Casa Ala que pertenece:</strong> ${myjson.house}<br></p>
-<p><strong>Edad:</strong> ${myjson.age}<br></p>
-<p><strong>Rol:</strong> ${myjson.role}
-<img src="${myjson.insignia}" alt="">
+    paintedCharacters += `<div class=" card col-xs-5 personaje"> 
+    <div><img class="imgI" src="${myjson.insignia}" alt=""></div>
+<div><img class="imgHP ll " src="${myjson.image}" alt=""></div>
+<div class='nombre'><p><span style="color: grey">${myjson.name}</span></p>
+<p>${myjson.house}</p></div>
+<p><strong> &#10070; Especie<br>
+</strong> ${myjson.species}</p>
+<p><strong>&#10070; Rol:</strong> ${myjson.role}</p>
+<p><strong>&#10070; Edad:</strong> ${myjson.age}</p>
+<p class="text-aling-j">&#10070; <strong>Actor:</strong> ${myjson.actor}</p>
 </div>`;
   });
   return paintedCharacters;
@@ -55,74 +99,41 @@ const houseLogo = house => {
       break;
     case "Gryffindor":
       insignia =
-        "https://image-cdn.neatoshop.com/styleimg/59804/none/black/default/354928-20;1496501439j.jpg";
+        "https://http2.mlstatic.com/insignia-gryffindor-harry-potter-D_NQ_NP_651875-MLC29350802141_022019-F.jpg";
       break;
     case "Slytherin":
       insignia =
-        "https://elenanofriki.com/3660-thickbox_default/placa-metalica-slytherin-harry-potter.jpg";
+        "https://cdn.shopify.com/s/files/1/2393/5817/products/Harry-Potter-Slytherin-Crest-Kids-T-Shirt-Logo-Web_1400x.jpg?v=1511172841";
       break;
     case "Hufflepuff":
       insignia =
-        "https://static.posters.cz/image/750/carteles/harry-potter-hufflepuff-i67993.jpg";
+        "https://images-na.ssl-images-amazon.com/images/I/61CZcW%2ByIDL._SY606_.jpg";
       break;
     case "Ravenclaw":
       insignia =
-        "https://images-na.ssl-images-amazon.com/images/I/91lV18S9QQL._SX466_.jpg";
+        "https://cdn.wallpapersafari.com/72/0/zoDO7R.jpg";
       break;
   }
   return insignia;
 };
-const converData = Personajes => {
-  return Personajes.map(personaje => {
-    personaje.age = calculateAge(personaje.yearOfBirth);
-    personaje.role = rolePersonajes(
-      personaje.hogwartsStudent,
-      personaje.hogwartsStaff
-    );
-    personaje.insignia = houseLogo(personaje.house);
-    return personaje;
-  });
-};
-
-const filtrado = (personajes, property, myFilter) => {
-  return personajes.filter(personaje => {
-    if (personaje[property] === myFilter) {
-      return true;
-    } else {
-      return false;
-    }
-  });
-};
-const comparisonUpward= (personajeA,personajeB) => {
-  const ageOne = personajeA.age;
-  const ageTwo = personajeB.age
-  return ageOne - ageTwo 
-};
-
-const comparisonFalling= (personajeA,personajeB) => {
-  const ageOne = personajeA.age;
-  const ageTwo = personajeB.age
-  return ageTwo - ageOne
-};
-
-const organized =(personajes,orderDireccion) => {
-  if(orderDireccion === 'Ascendente'){
-return personajes.sort(comparisonUpward)
-}else if (orderDireccion === 'Descendente'){
-  return personajes.sort(comparisonFalling)
-}
-}
 
 getCharacters().then(myjson => {
   root.innerHTML = painted(converData(myjson));
 });
 
 // getCharacters().then(myjson => {
-//   root.innerHTML = painted(converData(filtrado(myjson,'house','Ravenclaw')));
+//   const dataProcessed = converData(myjson);
+//   const dataFiltrada= filtrado(dataProcessed, "role", "Estudiante");
+//   root.innerHTML = painted(dataFiltrada);
 // });
 
-getCharacters().then(myjson => {
-  const dataProcessed = converData(myjson)
-  const dataOrdenada = organized(dataProcessed, 'Ascendente')
-  root.innerHTML = painted(dataOrdenada)
-})
+{
+  /* <div class="container-insignia">
+<div class="cuadrado">
+<img class="imgI ll" src="${myjson.insignia}" alt="">
+</div>
+<div class="container-footer-logo">
+  <div class="divcortado2"> </div>
+  <div class="divcortado1"></div>
+</div>
+</div> */}
