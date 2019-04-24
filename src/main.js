@@ -1,95 +1,74 @@
 /* Manejo del DOM */
-const root = document.getElementById("root");
-const above = document.getElementById("above"); //arriba ascendente
-const down = document.getElementById("down"); //descendente
-const gender = document.getElementById("gender");
-const role = document.getElementById("Rol");
-const house = document.getElementById("house");
+const root = document.getElementById('root');
+const above = document.getElementById('above'); // arriba ascendente
+const down = document.getElementById('down'); // descendente
+const gender = document.getElementById('gender');
+const role = document.getElementById('Rol');
+const house = document.getElementById('house');
 
-above.addEventListener("click", () => {
-  getCharacters().then(myjson => {
-    const dataProcessed = converData(myjson);
-    const dataOrdenada = organized(dataProcessed, "Ascendente");
-    root.innerHTML = painted(dataOrdenada);
+const aboves = dataPotter => {
+  above.addEventListener('click', () => {
+    const sort = GlobalFunctions.organized(dataPotter, 'Ascendente');
+    root.innerHTML = painted(sort);
   });
-});
-
-down.addEventListener("click", () => {
-  getCharacters().then(myjson => {
-    const dataProcessed = converData(myjson);
-    const dataOrdenada = organized(dataProcessed, "Descendente");
-    root.innerHTML = painted(dataOrdenada);
-  });
-});
-
-gender.addEventListener("change", () => {
-  getCharacters().then(myjson => {
-    const dataProcessed = converData(myjson);
-    const dataFiltrada = filtrado(dataProcessed, "gender", gender.value);
-    root.innerHTML = painted(dataFiltrada);
-  });
-});
-
-role.addEventListener("change", () => {
-  getCharacters().then(myjson => {
-    const dataProcessed = converData(myjson);
-    const dataFiltrada = filtrado(dataProcessed, "role", role.value);
-    root.innerHTML = painted(dataFiltrada);
-  });
-});
-
-house.addEventListener("change", () => {
-  getCharacters().then(myjson => {
-    const dataProcessed = converData(myjson);
-    const dataFiltrada = filtrado(dataProcessed, "house", house.value);
-    root.innerHTML = painted(dataFiltrada);
-  });
-});
-
-const getCharacters = () => {
-  return fetch(
-    "https://raw.githubusercontent.com/EstherTeran/LIM009-DL-2.0/master/src/data/potter.json"
-  ).then(response => {
-    return response.json();
-  }
-  );
 };
 
+const downs = dataPotter => {
+  down.addEventListener('click', () => {
+    const sort = GlobalFunctions.organized(dataPotter, 'Descendente');
+    root.innerHTML = painted(sort);
+  });
+};
+
+const genders = dataPotter => {
+  gender.addEventListener('change', () => {
+    const filter = GlobalFunctions.filtrado(dataPotter, 'gender', gender.value);
+    root.innerHTML = painted(filter);
+  });
+};
+
+const roles = dataPotter => {
+  role.addEventListener('change', () => {
+    const filter = GlobalFunctions.filtrado(dataPotter, 'role', role.value);
+    root.innerHTML = painted(filter);
+  });
+};
+
+const houses = dataPotter => { 
+  house.addEventListener('change', () => {
+    const filter = GlobalFunctions.filtrado(dataPotter, 'house', house.value);
+    root.innerHTML = painted(filter);
+  });
+};
+
+fetch('https://raw.githubusercontent.com/EstherTeran/LIM009-DL-2.0/master/src/data/potter.json')
+  .then(response => {
+    return response.json();
+  })
+  .then(dataPotter => {
+    getData(dataPotter);
+    roles(dataPotter);
+    houses(dataPotter);
+    genders(dataPotter);
+    downs(dataPotter);
+    aboves(dataPotter);
+  });
+
 const painted = pintado => {
-  let paintedCharacters = "";
-  pintado.forEach(myjson => {
-    paintedCharacters += `<div class=" card col-xs-5 personaje"> 
-    <div><img class="imgI" src="${myjson.insignia}" alt=""></div>
-<div><img class="imgHP ll " src="${myjson.image}" alt=""></div>
-<div><p>${myjson.name}</p>
-<p>${myjson.house}</p></div>
-<p><strong> &#10070; Especie<br></strong> ${myjson.species}</p>
-<p><strong>&#10070; Rol:</strong> ${myjson.role}</p>
-<p><strong>&#10070; Edad:</strong> ${myjson.age}</p>
-<p class="text-aling-j">&#10070; <strong>Actor:</strong> ${myjson.actor}</p>
-</div>`;
+  let paintedCharacters = '';
+  pintado.forEach(pottersData => {
+    paintedCharacters += `<div class=" card col-xs-5 col-lg-3 personajes"> 
+    <div><img class="imgI" src="${pottersData.insignia}" alt=""></div>
+    <div><img class="imgHP ll " src="${pottersData.image}" alt=""></div>
+    <div><p>${pottersData.name}</p><p>${pottersData.house}</p></div>
+    <p><strong> &#10070; Especie<br></strong> ${pottersData.species}</p>
+    <p><strong>&#10070; Rol:</strong> ${pottersData.role}</p>
+    <p><strong>&#10070; Edad:</strong> ${pottersData.age}</p>
+    <p class="text-aling-j">&#10070; <strong>Actor:</strong> ${pottersData.actor}</p></div>`;
   });
   return paintedCharacters;
 };
-getCharacters().then(myjson => {
-  root.innerHTML = painted(converData(myjson));
-  console.log(converData(myjson));
-});
 
-// getCharacters().then(myjson => {
-//   const dataProcessed = converData(myjson);
-//   const dataFiltrada= filtrado(dataProcessed, "role", "Estudiante");
-//   root.innerHTML = painted(dataFiltrada);
-// });
-
-// {
-  /* <div class="container-insignia">
-<div class="cuadrado">
-<img class="imgI ll" src="${myjson.insignia}" alt="">
-</div>
-<div class="container-footer-logo">
-  <div class="divcortado2"> </div>
-  <div class="divcortado1"></div>
-</div>
-</div> */
-// }
+const getData = dataPotter => {
+  root.innerHTML = painted(GlobalFunctions.converData(dataPotter));
+};

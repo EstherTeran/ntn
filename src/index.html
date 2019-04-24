@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,55 +8,55 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<!-- <body  class="contenedor"> -->
-
 <body>
   <header class="fila">
-      <nav class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <section class="fila">
-            <figure class="col-xs-4 col-sm-4 col-md-4 col-lg-4 figure"><img class="logo" src="https://cdn.wallpapersafari.com/63/13/XiKe2H.jpg" alt=""></figure>
-            <section class="col-xs-8 col-sm-8 col-md-8 col-lg-8 figure">
-          <div class="button">
-            <span>Ordenar por edad</span>
-            <label for="above">Ascendente</label>
-          <button id="above">&#8593;</button>
-          <label for="down">Descendente</label>
-          <button id="down">&#8595;</button>
-        </div>
-        <div class="selector">
-          <span>Filtrar Por</span>
-            <label for="gender">Genero</label>
-            <select name="Gender" class="p-selector" id="gender">
+    <nav class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+      <section class="fila">
+        <figure class="col-xs-4 col-sm-4 col-md-4 col-lg-12"><img class="col-xs-10"src="https://cdn.wallpapersafari.com/63/13/XiKe2H.jpg" alt=""></figure>
+        <section class="col-xs-8 col-sm-8 col-md-8 col-lg-12">
+          <div class="button col-xs-6">
+            <span class="col-xs-12">Ordenar por edad</span>
+           <div class="col-xs-12"> <label for="above" >Ascendente</label>
+            <button id="above" class="b-margen">&#8593;</button></div>
+            <div class="col-xs-12"> <label for="down">Descendente</label>
+            <button id="down" class="b-margen">&#8595;</button></div>
+          </div>
+          <div class="col-xs-6">
+           <div col xs 12><span>Filtrar Por</span></div> 
+            <div class="col-xs-12">
+              <label for="gender" class="col-xs-5">Genero</label>
+            <select name="Gender" class="col-xs-6 selector" id="gender">
               <option value="female">Femenino</option>
               <option value="male">Masculino</option>
-            </select>
-            <label for="Rol">Rol</label>
-            <select name="Role" class="p-selector" id="Rol">
+            </select></div>
+        
+            <div class="col-xs-12"> 
+              <label for="Rol" class="col-xs-5">Rol</label>
+            <select name="Role" class="col-xs-6 selector" id="Rol">
               <option value="Estudiante">Estudiante</option>
               <option value="Maestro">Maestro</option>
-            </select>
-            <label for="house">Casa</label>
-            <select name="House" class="p-selector" id="house">
+            </select></div>
+            <div class="col-xs-12">
+            <label for="house" class="col-xs-5">Casa</label>
+            <select name="House" class="col-xs-6 selector" id="house">
               <option value="Slytherin">Slytherin</option>
               <option value="Gryffindor">Gryffindor</option>
               <option value="Hufflepuff">Hufflepuff</option>
               <option value="Ravenclaw">Ravenclaw</option>
             </select>
           </div>
+          </div>
         </section>
-        </section>    
-      </nav>
-    </header>
-    <section class="fila ">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <div class="fila">
-            <h1 >Personajes de la Saga de Harry Potter</h1>
-        </div>
-        <main id="root" class="fila ">
-        </main>
+      </section>
+    </nav>
+  </header>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 nn">
+      <div class="fila">
+        <h1>Personajes de la Saga de Harry Potter</h1>
       </div>
-    
-    </section>
+      <main id="root" class="fila nn">
+      </main>
+    </div>
   <script src="data.js"></script>
   <script src="main.js"></script>
 </body>
