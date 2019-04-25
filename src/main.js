@@ -57,14 +57,21 @@ fetch('https://raw.githubusercontent.com/EstherTeran/LIM009-DL-2.0/master/src/da
 const painted = pintado => {
   let paintedCharacters = '';
   pintado.forEach(pottersData => {
-    paintedCharacters += `<div class=" card col-xs-5 col-lg-3 personajes"> 
-    <div><img class="imgI" src="${pottersData.insignia}" alt=""></div>
-    <div><img class="imgHP ll " src="${pottersData.image}" alt=""></div>
-    <div><p>${pottersData.name}</p><p>${pottersData.house}</p></div>
-    <p><strong> &#10070; Especie<br></strong> ${pottersData.species}</p>
-    <p><strong>&#10070; Rol:</strong> ${pottersData.role}</p>
-    <p><strong>&#10070; Edad:</strong> ${pottersData.age}</p>
-    <p class="text-aling-j">&#10070; <strong>Actor:</strong> ${pottersData.actor}</p></div>`;
+    paintedCharacters += `<div class="  col-xs-5     col-md-5  col-lg-4 p-20"> 
+    <div class=" card col-xs-12">
+    <img class="imgI" src="${pottersData.insignia}" alt="">
+    <div class="col-xs-12 ">  
+    <div class="col-xs-6 img-person">
+    <img class="imgHP ll " src="${pottersData.image}" alt="">
+    </div>
+    </div>
+  <div class="col-xs-12"><p>${pottersData.name}</p><p>${pottersData.house}</p></div>
+    <p class="col-xs-12"><strong> &#10070; Especie<br></strong> ${pottersData.species}</p>
+    <p class="col-xs-12"><strong>&#10070; Rol:</strong> ${pottersData.role}</p>
+    <p class="col-xs-12"><strong>&#10070; Edad:</strong> ${pottersData.age}</p>
+    <p class="col-xs-12 text-aling-j">&#10070; <strong>Actor:</strong> ${pottersData.actor}</p></div>
+    </div>
+    `;
   });
   return paintedCharacters;
 };
