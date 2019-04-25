@@ -15,7 +15,7 @@ Grande mayor de992px
   padding: 20px;
 }
 .card {
-  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px 0 wheat;
   border-radius: 20px;
   transition: 0.3s;
   margin-top: 10px;
@@ -23,7 +23,7 @@ Grande mayor de992px
 } 
 
 .card:hover {
-  box-shadow: 0 16px 32px 0 #a8ffb2;
+  box-shadow: 0 16px 32px 0 #a8d8ff;
 }                        
 
 /* .img-person {
@@ -55,6 +55,7 @@ justify-content: center;
 }
 body {
   padding-top: 168px;
+  background-color: #2A7173;
 }
 .nn {
   float: right;
@@ -101,6 +102,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  background-color:#90C3BA;
 }
 
 
@@ -123,11 +125,12 @@ label {
 }
 
 h1 {
-  margin: 14px 0px;
+  background-color: #2A7173;
+  margin:14px 0px;
   font-style: italic;
   font-weight: bold;
   font-size: x-large;
-  color: #696969;
+  color: wheat;
   font-family: "Monserrat", sans-serif;
 }
 
@@ -347,14 +350,7 @@ h1 {
     color: wheat;
   }
 
-  h1 {
-    margin: 14px 0px;
-    font-style: italic;
-    font-weight: bold;
-    font-size: x-large;
-    color: #696969;
-    font-family: "Monserrat", sans-serif;
-  }
+  
 
 }
 
@@ -469,14 +465,7 @@ h1 {
     color: wheat;
   }
 
-  h1 {
-    margin: 14px 0px;
-    font-style: italic;
-    font-weight: bold;
-    font-size: x-large;
-    color: #696969;
-    font-family: "Monserrat", sans-serif;
-  }
+  
   .posicion {
     justify-content: center;
   }

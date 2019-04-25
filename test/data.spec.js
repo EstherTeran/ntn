@@ -25,14 +25,15 @@ describe('Realizando test a las funciones', () => {
   it('debería ser una función', () => {
     expect(typeof GlobalFunctions.organized).toBe('function');
   });
+
+  it('la funcion deveria retornar igual', () => {
+    expect(GlobalFunctions.organized(GlobalFunctions.sortIgual, 'Igual')).toEqual(undefined);
+  });
   
   it('La funcion organized deberia retornar en manera ascendente', () => {
     expect(GlobalFunctions.organized(GlobalFunctions.dataModificada, 'Ascendente')).toEqual(GlobalFunctions.dataOrdenada);
   });
   it('la funcion deveria retornar en manera descendente', () => {
     expect(GlobalFunctions.organized(GlobalFunctions.dataModificada, 'Descendente')).toEqual(GlobalFunctions.dataOrdenadaDescendente);
-  });
-  it('la funcion deveria retornar igual', () => {
-    expect(GlobalFunctions.organized(GlobalFunctions.sortIgual, 'igual')).toEqual(undefined);
   });
 });
