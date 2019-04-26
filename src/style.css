@@ -11,24 +11,18 @@ Grande mayor de992px
   margin: 0;
   text-align: center;
 }
-.p-20{
-  padding: 20px;
-}
+
 .card {
   box-shadow: 0 10px 30px 0 wheat;
   border-radius: 20px;
   transition: 0.3s;
   margin-top: 10px;
   padding: 0 20px 20px 20px;
+  height: 70vh;
 } 
-
 .card:hover {
-  box-shadow: 0 16px 32px 0 #a8d8ff;
-}                        
-
-/* .img-person {
-  margin: 12px 0 12px 40px;
-} */
+  box-shadow: 0 16px 32px 0 #a8ffb2;
+}                    
 .b-margen {
   border: cadetblue solid 1px;
   height: 20px;
@@ -50,17 +44,15 @@ justify-content: center;
 .text-align-start {
   text-align: left;
 }
-.card:hover {
-  box-shadow: 0 16px 32px 0 #a8ffb2;
-}
+
 body {
   padding-top: 168px;
   background-color: #2A7173;
 }
-.nn {
+.f-right {
   float: right;
 }
-.section-nav {
+.seccion-nav {
   height: 129px;
 }
 nav {
@@ -70,9 +62,9 @@ nav {
   background-color: black;
 }
 
-.imgHP {
-  height: 133px;
-  width: 136px;
+.img-personaje {
+  height: 100px;
+  width: 100px;
   margin: 12px 0px 0px;
   border-radius: 50%;
 }
@@ -82,7 +74,7 @@ nav {
 .mrg-b-8 {
   margin-bottom: 8px;
 }
-.imgI {
+.img-insignia {
   height: 50px;
   width: 40px;
   border-radius: 5px;
@@ -110,10 +102,6 @@ p {
   margin: auto;
   width: 100%;
   height: auto;
-}
-
-.selector {
-  margin: 2px;
 }
 
 span {
@@ -282,7 +270,7 @@ h1 {
   .col-md-1 {
     width: 8.333333333333332%;
   }
-  .section {
+  .seccion {
     height: 100vh;
   }
   body {
@@ -297,32 +285,41 @@ h1 {
     background-color: black;
   }
 
-  .imgHP {
+  .img-personaje {
     height: 133px;
     width: 136px;
     margin: 12px 0px 0px;
     border-radius: 50%;
   }
 
-  .imgI {
+  .img-insignia {
     height: 50px;
     width: 40px;
     border-radius: 5px;
     float: right;
   }
 
-
-
+  .card {
+    box-shadow: 0 10px 30px 0 wheat;
+    border-radius: 20px;
+    transition: 0.3s;
+    margin-top: 10px;
+    padding: 0 20px 20px 20px;
+    height: 70vh;
+  }
 
 
   p {
     text-align: left;
   }
+  .p-20{
+    padding: 20px;
+  }
 
-  .button {
+  .b-margin {
     margin: 100px 0px;
   }
-  .nn {
+  .f-right {
     float: right;
   }
   #root {
@@ -338,7 +335,7 @@ h1 {
     height: auto;
   }
 
-  .selector {
+  .s-margin {
     margin: 2px;
   }
 
@@ -424,7 +421,7 @@ h1 {
     border-radius: 50%;
   }
 
-  .imgI {
+  .img-insignia {
     height: 50px;
     width: 40px;
     border-radius: 5px;
@@ -436,7 +433,7 @@ h1 {
     text-align: left;
   }
 
-  .button {
+  .b-margin {
     margin: 100px 0px;
   }
 
@@ -453,9 +450,6 @@ h1 {
     height: auto;
   }
 
-  .selector {
-    margin:2px;
-  }
 
   span {
     color: wheat;
@@ -470,32 +464,3 @@ h1 {
     justify-content: center;
   }
 }
-
-/* insignia */
-/* .cuadrado {
-  height: 40px;
-  width: 40px;
-  background-color: red;
-}
-.container-insignia {
-  margin-left: 0;
-  margin-right: auto;
-  width: 40px;
-}
-.container-footer-logo {
-  width: 40px;
-}
-
-.divcortado1 {
-  width: 50%;
-  float: left;
-  border-left: 20px solid red;
-  border-bottom: 10px solid transparent;
-}
-
-.divcortado2 {
-  float: left;
-  border-right: 20px solid red;
-  border-bottom: 10px solid transparent;
-  width: 50%;
-} */

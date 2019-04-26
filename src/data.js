@@ -37,7 +37,7 @@ const houseLogo = house => {
     break;
   }
   return insignia;
-};
+}; 
 
 const converData = Personajes => {
   return Personajes.map(personaje => {
@@ -54,7 +54,7 @@ const converData = Personajes => {
 const comparisonUpward = (personajeA, personajeB) => {
   const ageOne = personajeA.age;
   const ageTwo = personajeB.age;
-  return ageOne - ageTwo;
+  return ageOne - ageTwo; // ascendete
 };
 
 const comparisonFalling = (personajeA, personajeB) => {

@@ -138,7 +138,7 @@
     "house": "Ravenclaw",
     "dateOfBirth": "",
     "yearOfBirth": "",
-    "ancestry": "",
+    "ancestry": ""
     "eyeColour": "brown",
     "hairColour": "black",
     "wand": {
@@ -405,7 +405,7 @@
     "ancestry": "pure-blood",
     "eyeColour": "brown",
     "hairColour": "brown",
-    "wand": {
+    "wand": { 
       "wood": "",
       "core": "",
       "length": ""

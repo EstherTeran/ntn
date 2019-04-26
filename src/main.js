@@ -59,10 +59,10 @@ const painted = pintado => {
   pintado.forEach(pottersData => {
     paintedCharacters += `<div class="  col-xs-5     col-md-5  col-lg-4 p-20"> 
     <div class=" card col-xs-12">
-    <img class="imgI" src="${pottersData.insignia}" alt="">
+    <img class="img-insignia" src="${pottersData.insignia}" alt="">
     <div class="col-xs-12 ">  
     <div class="col-xs-6 img-person">
-    <img class="imgHP ll " src="${pottersData.image}" alt="">
+    <img class="img-personaje ll " src="${pottersData.image}" alt="">
     </div>
     </div>
   <div class="col-xs-12"><p>${pottersData.name}</p><p>${pottersData.house}</p></div>
