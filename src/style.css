@@ -11,18 +11,39 @@ Grande mayor de992px
   margin: 0;
   text-align: center;
 }
+.position-rlt {
+position: relative;
+display: block;
+}
+
+
+.content-center {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
 .card {
   box-shadow: 0 10px 30px 0 wheat;
   border-radius: 20px;
   transition: 0.3s;
-  margin-top: 10px;
-  padding: 0 20px 20px 20px;
-  height: 70vh;
-} 
+  margin-top: 15px;
+  padding: 115px 20px 20px 20px;
+  } 
+
 .card:hover {
   box-shadow: 0 16px 32px 0 #a8ffb2;
-}                    
+}
+.img-personaje {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+/* .a {
+  display: flex;
+  flex-wrap: wrap;
+  align-self: flex-end;
+} */      
 .b-margen {
   border: cadetblue solid 1px;
   height: 20px;
@@ -58,37 +79,47 @@ body {
 nav {
   top: 0;
   position: fixed;
+  z-index: 3;
   padding: 20px;
   background-color: black;
 }
-
-.img-personaje {
-  height: 100px;
-  width: 100px;
-  margin: 12px 0px 0px;
-  border-radius: 50%;
+.container-img-personaje {
+  position: absolute;
+  top: 15px;
 }
+
 .subtitle{
   margin-bottom: 20px;
 }
 .mrg-b-8 {
   margin-bottom: 8px;
 }
+
+.card-title {
+  margin-top: 10px;
+}
+.card-subtitle {
+  margin-bottom: 5px;
+}
 .img-insignia {
-  height: 50px;
-  width: 40px;
+  height: 30px;
+  width: 25px;
   border-radius: 5px;
-  float: right;
+  position: absolute;
+  right: 15px;
+  top: 0;
 }
 
-p {
+.text-left {
   text-align: left;
 }
 
 
 [class*="col-"] {
   float: left;
+  
 }
+
 
 #root {
   display: flex;
@@ -96,19 +127,16 @@ p {
   justify-content: space-evenly;
   background-color:#90C3BA;
 }
-
-
+#root > div {
+   display: flex;
+}
 .fila {
   margin: auto;
   width: 100%;
   height: auto;
 }
 
-span {
-  color: wheat;
-}
-
-label {
+ .color-wheat, label{
   color: wheat;
 }
 
@@ -171,7 +199,7 @@ h1 {
 }
 
 /* tablets sm */
-@media (min-width: 576px) {
+@media (min-width: 400px) {
   .col-sm-12 {
     width: 100%;
   }
@@ -222,7 +250,7 @@ h1 {
 }
 
 /* laptops md*/
-@media (min-width: 768px) {
+@media (min-width: 750px) {
   .col-md-12 {
     width: 100%;
   }
@@ -273,47 +301,22 @@ h1 {
   .seccion {
     height: 100vh;
   }
+  .card {
+    padding: 125px 20px 20px 20px;
+  } 
+
   body {
     padding-top: 0px;
   }
 
   nav {
-    top: 0;
-    position: fixed;
     padding-top: 20px;
     height: 100vh;
-    background-color: black;
-  }
-
-  .img-personaje {
-    height: 133px;
-    width: 136px;
-    margin: 12px 0px 0px;
-    border-radius: 50%;
   }
 
   .img-insignia {
-    height: 50px;
-    width: 40px;
-    border-radius: 5px;
-    float: right;
-  }
-
-  .card {
-    box-shadow: 0 10px 30px 0 wheat;
-    border-radius: 20px;
-    transition: 0.3s;
-    margin-top: 10px;
-    padding: 0 20px 20px 20px;
-    height: 70vh;
-  }
-
-
-  p {
-    text-align: left;
-  }
-  .p-20{
-    padding: 20px;
+    height: 40px;
+    width: 32px;
   }
 
   .b-margin {
@@ -322,12 +325,6 @@ h1 {
   .f-right {
     float: right;
   }
-  #root {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-  }
- 
 
   .fila {
     margin: auto;
@@ -337,14 +334,6 @@ h1 {
 
   .s-margin {
     margin: 2px;
-  }
-
-  span {
-    color: wheat;
-  }
-
-  label {
-    color: wheat;
   }
 
   
@@ -401,17 +390,12 @@ h1 {
   .col-lg-1 {
     width: 8.333333333333332%;
   }
-
-  body {
-    padding-top: 0px;
+  .card-title {
+    margin-top: 15px;
   }
-
-  nav {
-    top: 0;
-    position: fixed;
-    padding-top: 20px;
-    height: 100vh;
-    background-color: black;
+  .padding-col {
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .imgHP {
@@ -421,46 +405,17 @@ h1 {
     border-radius: 50%;
   }
 
-  .img-insignia {
-    height: 50px;
-    width: 40px;
-    border-radius: 5px;
-    float: right;
-  }
-
-
-  p {
-    text-align: left;
-  }
-
-  .b-margin {
-    margin: 100px 0px;
-  }
-
-  #root {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-  }
-
+  .img-personaje {
+    height: 133px;
+    width: 136px;
+  } 
 
   .fila {
     margin: auto;
     width: 100%;
     height: auto;
   }
-
-
-  span {
-    color: wheat;
-  }
-
-  label {
-    color: wheat;
-  }
-
-  
-  .posicion {
-    justify-content: center;
-  }
+  .card {
+    padding: 145px 20px 20px 20px;
+  } 
 }

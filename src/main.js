@@ -57,19 +57,22 @@ fetch('https://raw.githubusercontent.com/EstherTeran/LIM009-DL-2.0/master/src/da
 const painted = pintado => {
   let paintedCharacters = '';
   pintado.forEach(pottersData => {
-    paintedCharacters += `<div class="  col-xs-5     col-md-5  col-lg-4 p-20"> 
-    <div class=" card col-xs-12">
-    <img class="img-insignia" src="${pottersData.insignia}" alt="">
-    <div class="col-xs-12 ">  
-    <div class="col-xs-6 img-person">
-    <img class="img-personaje ll " src="${pottersData.image}" alt="">
-    </div>
-    </div>
-  <div class="col-xs-12"><p>${pottersData.name}</p><p>${pottersData.house}</p></div>
-    <p class="col-xs-12"><strong> &#10070; Especie<br></strong> ${pottersData.species}</p>
-    <p class="col-xs-12"><strong>&#10070; Rol:</strong> ${pottersData.role}</p>
-    <p class="col-xs-12"><strong>&#10070; Edad:</strong> ${pottersData.age}</p>
-    <p class="col-xs-12 text-aling-j">&#10070; <strong>Actor:</strong> ${pottersData.actor}</p></div>
+    paintedCharacters += `
+    <div class="col-xs-9 col-sm-5 col-lg-4 padding-col"> 
+      <div class="card col-xs-12  content-center position-rlt">
+        <img class="img-insignia position-abs" src="${pottersData.insignia}" alt="">
+      <div class="col-xs-12 container-img-personaje">
+        <img class="img-personaje" src="${pottersData.image}" alt="">
+      </div>
+      <div class="col-xs-12 ">
+        <strong class="col-xs-12 card-title">${pottersData.name}</strong>
+        <small class="col-xs-12 card-subtitle">${pottersData.house}</small>
+        <span class="col-xs-12 text-left"><strong> &#10070; Especie</strong> ${pottersData.species}</span>
+        <span class="col-xs-12 text-left"><strong>&#10070; Rol:</strong> ${pottersData.role}</span>
+        <span class="col-xs-12 text-left"><strong>&#10070; Edad:</strong> ${pottersData.age}</span>
+        <span class="col-xs-12 text-left">&#10070; <strong>Actor:</strong> ${pottersData.actor}</span>
+        </div>
+      </div>
     </div>
     `;
   });
